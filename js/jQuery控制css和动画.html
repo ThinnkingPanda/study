@@ -1,0 +1,72 @@
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script>
+    // 入口函数
+    // $(function () {
+    //     alert("hello jquery")
+    // })
+    // $(document).ready(function(){
+    //     alert("hello jquery")
+    // })
+
+    // ---------------------------------------------------------------------------------------
+
+    // $(function () {
+    //     $('button').click(function(){
+    //         alert("hello jquery")
+    //     })
+    // })
+
+    // ---------------------------------------------------------------------------------------
+
+    // $(function(){
+    //     $('button:eq(0)').click(function(){
+    //         $('span').hide(function(){
+    //             $('span')
+    //         })
+    //     })
+    // })
+    // $(function(){
+    //     $('button:eq(1)').click(function(){
+    //         $('span').show(function(){
+    //             $('span')
+    //         })
+    //     })
+    // })
+
+    // ---------------------------------------------------------------------------------------
+
+    // $(function(){
+    //     $('button:eq(0)').click(function(){
+    //         $('span').slideUp()
+    //     })
+    // })
+    // $(function(){
+    //     $('button:eq(1)').click(function(){
+    //         $('span').slideDown()
+    //     })
+    // })
+
+    // ---------------------------------------------------------------------------------------
+
+    // unload() 方法在 jQuery 版本 1.8 中被废弃，在 3.0 版本被移除。
+    // Firefox 与 Chrome 会阻止弹窗，所以没办法看到效果。
+    // $(window).unload(function () {
+    //     alert("Goodbye!");
+    // });
+
+    // ---------------------------------------------------------------------------------------
+
+    $(window).scroll(function () {
+        console.log('scroll')
+    });
+</script>
+
+<body>
+    <button>消失按钮</button>
+    <button>显示按钮</button>
+    <button>停止动画</button>
+    <div>
+        <span>hello jquery</span>
+    </div>
+</body>
