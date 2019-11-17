@@ -1,0 +1,54 @@
+<script>
+    // 在函数内部创建一个函数就是一个闭包
+    // function add() {
+    //     var a = 0
+    //     return function () {
+    //         a++
+    //         console.log(a)
+    //     }
+    // }
+    // var b = add()
+    // b()
+    // b()
+
+
+    // let a = 1
+    // let obj = {
+    //     a: 2,
+    //     getthis: function () {
+    //         let a = 2
+    //         let that=this
+    //         return function () {
+    //             return that.a
+    //         }
+    //     }
+    // }
+    // console.log(obj.getthis()())
+    // js中函数内部可以读取全局变量
+    // 闭包会使函数中的变量都被保存在内存中,对内存的消耗很大,滥用会造成性能问题
+
+
+    function f1() {
+
+        var n = 999;
+
+        nAdd = function () { n += 1 }
+
+        function f2() {
+            alert(n);
+        }
+
+        return f2;
+
+    }
+
+    var result = f1();
+
+    result(); // 999
+
+    nAdd();
+
+    result(); // 1000
+
+
+</script>
