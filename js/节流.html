@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+<script>
+    var count = 1
+    var container = document.getElementById('container')
+    function getUserAcrion() {
+        container.innerHTML = count++
+    }
+
+    function throttle(func, wait) {
+        let context, args
+        let previous = 0
+        return function () {
+            let now = +new Date()    // 获取当前时间戳
+            console.log(now)
+            context = this
+            args = arguments
+            if (now - previous > wait) {    // 如果当前时间戳减去上一次执行时的时间戳大于执行周期，就执行函数
+                func.apply(context, args)
+                previous = now
+            }
+        }
+    }
+    container.onmousemove = throttle(getUserAcrion, 1000)
+</script>
+
+</html>
