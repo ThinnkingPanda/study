@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+
+<script>
+    var count = 1
+    var container = document.getElementById('container')
+    function getUserAction(e) {
+        console.log(e)
+        container.innerHTML = count++
+    }
+    // 在移动鼠标停止后一秒触发getUserAction()
+    function debounce(func, wait, immediate) {
+        let timeout
+        return function () {
+            let context = this          // 获取正确的this指向
+            let args = arguments        // 获取正确的事件对象
+            if (!timeout) func.apply(context, args)         // 第一次触发事件时不进行防抖操作
+            clearTimeout(timeout)
+            timeout = setTimeout(function () {              // 鼠标停止移动一秒后才会触发getUserAction()
+                func.apply(context, args)
+            }, wait)
+        }
+    }
+    // container.onmousemove = getUserAction             // 不进行防抖操作
+
+    container.onmousemove = debounce(getUserAction, 1000)
+</script>
+
+</html>
